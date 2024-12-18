@@ -4,6 +4,7 @@ from .forms import MovieForm
 from django.contrib import messages
 
 # Create your views here.
+
 def addmovie(request):
 	if request.method == "POST":
 		movie_form = MovieForm(request.POST, request.FILES)
@@ -18,4 +19,8 @@ def addmovie(request):
 	movie_form = MovieForm()
 	movies = Movie.objects.all()
 	return render(request=request, template_name="home.html", context={'movie_form':movie_form, 'movies':movies})
+
+def listmovie(request):
+	movies = Movie.objects.all()
+	return render(request=request, template_name="listmovie.html", context={'movies':movies})
 # Create your views here.
