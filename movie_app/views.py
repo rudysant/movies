@@ -15,10 +15,10 @@ def addmovie(request):
 			messages.error(request, 'Error saving form')
 		
 		
-		return redirect("addmovie")
+		return redirect("listmovie")
 	movie_form = MovieForm()
 	movies = Movie.objects.all()
-	return render(request=request, template_name="home.html", context={'movie_form':movie_form, 'movies':movies})
+	return render(request=request, template_name="home.html", context={'movie_form':movie_form})
 
 def listmovie(request):
 	movies = Movie.objects.all()
